@@ -1,0 +1,162 @@
+#!/bin/sh
+#
+# From
+# https://gitern.com/
+
+gitern_ssh() {
+    command ssh git@gitern.com "$@"
+}
+
+gitern_remote_subcommand() {
+    cmd="gitern-$1"; shift
+    gitern_ssh "$cmd" "$@"
+}
+
+gitern_remote_subsubcommand() {
+    cmd="$1-$2"; shift; shift
+    gitern_remote_subcommand "$cmd" "$@"
+}
+
+gitern__create() {
+    gitern_remote_subcommand "$@" >/dev/null && {
+        echo "created remote repo"
+    }
+}
+gitern__delete() {
+    gitern_remote_subcommand "$@"
+}
+gitern__list() {
+    gitern_remote_subcommand "$@"
+}
+gitern__pubkey__add() {
+    if [ -z "$4" ]; then
+        gitern_remote_subsubcommand "$1" "$2" "$3"
+    else
+        gitern_remote_subsubcommand "$1" "$2" "$3" < "$4"
+    fi
+}
+gitern__pubkey__remove() {
+    gitern_remote_subsubcommand "$1" "$2" "$4" "$3"
+}
+gitern__pubkey__list() {
+    gitern_remote_subsubcommand "$@"
+}
+gitern__pubkey() {
+    if [ $# -eq 1 ]; then
+        gitern__help__pubkey
+        exit 1
+    else
+        call "gitern__$1__$2" "$@"
+    fi
+}
+gitern__help__pubkey__list() {
+help="list ssh public keys
+
+USAGE
+  $ gitern pubkey list [ACCOUNT]
+
+ARGUMENTS
+  ACCOUNT      [default: all] account name"
+  echo "$help"
+}
+gitern__help__pubkey__remove() {
+help="remove ssh public key
+
+USAGE
+  $ gitern pubkey remove ACCOUNT FINGERPRINT
+
+ARGUMENTS
+  ACCOUNT      account name
+  FINGERPRINT  SHA256 fingerprint of public key"
+  echo "$help"
+}
+gitern__help__pubkey__add() {
+help="add ssh public key
+
+USAGE
+  $ gitern pubkey add ACCOUNT [KEYFILE]
+
+ARGUMENTS
+  ACCOUNT  account name
+  KEYFILE  [default: stdin] public key file"
+  echo "$help"
+}
+gitern__help__pubkey() {
+    help="manage ssh public keys
+
+USAGE
+  $ gitern pubkey COMMAND
+
+COMMANDS
+  add     add ssh public key
+  list    list ssh public keys
+  remove  remove ssh public key"
+  echo "$help"
+}
+gitern__help__list() {
+    help="list repos
+
+USAGE
+  $ gitern list [PATH]
+
+ARGUMENTS
+  PATH  [default: all repos] directory path"
+    echo "$help"
+}
+gitern__help__delete() {
+    help="delete repo
+
+USAGE
+  $ gitern delete PATH
+
+ARGUMENTS
+  PATH  path including repo name"
+    echo "$help"
+}
+gitern__help__create() {
+    help="create repo
+
+USAGE
+  $ gitern create PATH
+
+ARGUMENTS
+  PATH  path including repo name"
+    echo "$help"
+}
+gitern__help() {
+    if [ $# -eq 3 ]; then
+        call "gitern__$1__$2__$3" "$@"
+    elif [ $# -eq 2 ]; then
+        call "gitern__$1__$2" "$@"
+    else
+        help="gitern is a git host for hackers
+
+VERSION
+  gitern/1.0.0 posix shell
+
+USAGE
+  $ gitern [COMMAND]
+
+COMMANDS
+  create  create repo
+  delete  delete repo
+  help    display help for gitern
+  list    list repos
+  pubkey  manage ssh public keys
+"
+        echo "$help"
+    fi
+}
+
+call() {
+    func=$1
+    if type "$func" 1>/dev/null 2>&1; then
+        shift
+        "$func" "$@"  # invoke our named function w/ all remaining arguments
+    else
+        gitern__help
+        exit 1
+    fi
+}
+
+call "gitern__$1" "$@"

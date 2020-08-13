@@ -1,0 +1,6 @@
+#!/bin/sh
+
+available_columns="$(tput cols)"
+working_columns='80'
+test "$available_columns" -lt "$working_columns" && working_columns="$available_columns"
+echo "$working_columns"

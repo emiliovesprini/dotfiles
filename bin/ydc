@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# ydc stands for Youtube-Dl Clean.
+# It verbosely moves files commonly left by youtube-dl errors to /tmp/ydc
+# (so you can tell if you've ''cleaned'' something by accident).
+
+mkdir -p /tmp/ydc
+
+echo 'Moving *..webp      to /tmp/ydc'; mv *'.webp'       /tmp/ydc 2>/dev/null
+echo 'Moving *.jpg        to /tmp/ydc'; mv *'.jpg'        /tmp/ydc 2>/dev/null
+echo 'Moving *.temp.mp3   to /tmp/ydc'; mv *'.temp.mp3'   /tmp/ydc 2>/dev/null
+echo 'Moving *.webm.part  to /tmp/ydc'; mv *'.webm.part'  /tmp/ydc 2>/dev/null
+echo 'Moving *.webm.part  to /tmp/ydc'; mv *'.webm.part'  /tmp/ydc 2>/dev/null

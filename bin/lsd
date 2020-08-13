@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# lsd stands for LS Dotfiles
+#
+# ls     # exclude hidden files
+# ls -a  # include hidden files
+# lsd    # exclude non hidden files
+
+ls -1a "$@" | grep '^\.'

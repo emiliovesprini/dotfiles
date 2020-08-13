@@ -1,0 +1,13 @@
+set noautoindent
+set noautowrite
+set nobeautify
+set nocomment
+set extended
+set noflash
+" set number
+set ruler
+set searchincr
+" set shiftwidth=8
+set showmode
+set showmatch
+set tabstop=8

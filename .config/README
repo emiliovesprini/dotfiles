@@ -1,0 +1,23 @@
+Dotfiles
+
+This repo does NOT follow strict git discipline.
+Expect ''moar changes'' commits.
+
+
+Management
+
+        cd # Yes, $HOME.
+        git init
+        printf '*\n' >.gitignore
+
+
+Dotfiles vibe check
+
+https://git.sr.ht/~sircmpwn/dotfiles
+https://github.com/LukeSmithxyz/voidrice
+https://github.com/Parth/dotfiles
+https://github.com/arp242/dotfiles
+https://github.com/cloudhead/dotfiles
+https://github.com/eevee/rc
+https://github.com/garybernhardt/dotfiles
+https://github.com/k0001/dotfiles

@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# shesc stands for SHell ESCape
+#
+# From
+# https://www.etalabs.net/sh_tricks.html
+#
+# Modified:
+# * not a function anymore
+
+printf "%s\n" "$1" | sed "s/'/'\\\\''/g;1s/^/'/;\$s/\$/'/"

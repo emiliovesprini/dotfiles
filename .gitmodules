@@ -1,0 +1,18 @@
+[submodule "bin/submodules/shfm"]
+	path = bin/submodules/shfm
+	url = https://github.com/dylanaraps/shfm
+[submodule "bin/submodules/neofetch"]
+	path = bin/submodules/neofetch
+	url = https://github.com/dylanaraps/neofetch
+[submodule "bin/submodules/pfetch"]
+	path = bin/submodules/pfetch
+	url = https://github.com/dylanaraps/pfetch
+[submodule "bin/submodules/pash"]
+	path = bin/submodules/pash
+	url = https://github.com/dylanaraps/pash
+[submodule "bin/submodules/birch"]
+	path = bin/submodules/birch
+	url = https://github.com/dylanaraps/birch
+[submodule "bin/submodules/pow"]
+	path = bin/submodules/pow
+	url = https://github.com/dylanaraps/pow

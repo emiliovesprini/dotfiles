@@ -1,0 +1,26 @@
+[apply]
+        whitespace = fix
+[color]
+        branch = false
+        diff = false
+        grep = auto
+        interactive = false
+        log = false
+        status = false
+        ui = false
+[core]
+        editor = $VISUAL
+        eol = lf # to always use \n, even on Windows.
+        whitespace = space-before-tab,trailing-space
+[gpg]
+        program = gpg2 # because not all systems install a "gpg" symlink.
+[sendemail]
+        smtpencryption = tls
+        smtpserver = mail.cock.li
+        smtpserverport = 587
+        smtpuser = naveguese@cock.li
+[status]
+        branch = true
+[user]
+        email = naveguese@cock.li
+        name = Emilio Vesprini

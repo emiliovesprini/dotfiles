@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -eu -o pipefail
+
+# TODO: loop though $@.
+
+youtube-dl               \
+--audio-format "mp3"     \
+--audio-quality 0        \
+--embed-thumbnail        \
+--extract-audio          \
+--format bestaudio/best  \
+--geo-bypass             \
+--no-playlist            \
+"$1"

@@ -1,0 +1,40 @@
+#!/bin/sh
+
+if ! command -v 'io.elementary.terminal' >/dev/null; then
+        printf "Error: 'io.elementary.terminal' not available.\n" 1>&2
+        exit 1
+fi
+
+if ! command -v 'gsettings' >/dev/null; then
+        printf "Error: command 'gsettings' not available.\n" 1>&2
+        exit 1
+fi
+
+# Asciinema's default theme
+# * custom cursor
+#
+# gsettings set io.elementary.terminal.settings background    '#000000'
+# gsettings set io.elementary.terminal.settings foreground    '#ffffff'
+# gsettings set io.elementary.terminal.settings cursor-color  '#7f7f7f'
+# colors00through07='#000000:#dd3c69:#4ebf22:#ddaf3c:#26b0d7:#b954e1:#54e1b9:#d9d9d9'
+# colors08through15='#4d4d4d:#dd3c69:#4ebf22:#ddaf3c:#26b0d7:#b954e1:#54e1b9:#ffffff'
+# gsettings set io.elementary.terminal.settings palette "${colors00through07}:${colors08through15}"
+
+# CSS level 1 theme
+#
+# gsettings set io.elementary.terminal.settings background    '#ffffff'
+# gsettings set io.elementary.terminal.settings foreground    '#000000'
+# gsettings set io.elementary.terminal.settings cursor-color  '#ffa500' # ''orange'', actually from CSS level 2.
+# colors00through07='#000000:#800000:#008000:#808000:#000080:#800080:#008080:#c0c0c0'
+# # colors08through15='#808080:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff'
+# colors08through15='#808080:#800000:#008000:#808000:#000080:#800080:#008080:#ffffff'
+# gsettings set io.elementary.terminal.settings palette "${colors00through07}:${colors08through15}"
+
+# CSS level 1 theme, reversed-ish
+#
+gsettings set io.elementary.terminal.settings background    '#000000'
+gsettings set io.elementary.terminal.settings foreground    '#ffffff'
+gsettings set io.elementary.terminal.settings cursor-color  '#005aff' # ''orange'', actually from CSS level 2.
+colors00through07='#000000:#ff7f7f:#7fff7f:#ffff7f:#7f7fff:#ff7fff:#7fffff:#c0c0c0'
+colors08through15='#808080:#ff7f7f:#7fff7f:#ffff7f:#7f7fff:#ff7fff:#7fffff:#ffffff'
+gsettings set io.elementary.terminal.settings palette "${colors00through07}:${colors08through15}"
