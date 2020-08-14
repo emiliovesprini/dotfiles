@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Divider-less UTC ISO date for asciibetical sort.
+
+date -u +'%Y%m%d%H%M%S'

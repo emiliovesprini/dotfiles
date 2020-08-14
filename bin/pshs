@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# From
+# TODO
+
+python -m SimpleHTTPServer $1
