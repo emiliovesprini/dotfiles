@@ -5,21 +5,12 @@
 alias batsrs='BATS_RUN_SKIPPED=true bats'
 alias clear="printf ''" # to get rid of a bad habit.
 alias pwgen='pwgen --no-capitalize --numerals --secure --num-passwords=1'
+alias sheck=shellcheck posixcheck='shellcheck --shell=sh'
 alias xo=xdg-open
 
 lsopts='-1'
 command ls --version >/dev/null && lsopts="${lsopts} --color=auto --sort=v"
 alias ls="ls ${lsopts}"
-
-# date
-#
-alias datesort='date -u +"%Y-%m-%d"' # UTC for asciibetical sort
-alias datetimesort='date -u +"%Y-%m-%d_%H-%M-%S"' # ditto for file names
-
-# shellcheck
-#
-alias posixcheck='shellcheck --shell=sh'
-alias sheck=shellcheck
 
 ## Functions
 
@@ -29,7 +20,8 @@ aptsearch() {
 
 vimrc() {
         vim "${HOME}/.vimrc"
-        vim -c 'q' # does a hacky ''dry run'' to catch any errors in the config.
+        # Do a hacky ''dry run'' to make sure I didn't write any errors into the config:
+        vim -c 'q'
 }
 
 ### Docs

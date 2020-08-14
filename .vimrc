@@ -185,7 +185,6 @@ endif
 set expandtab softtabstop=8 shiftwidth=8 tabstop=8
 set modeline
 set nojoinspaces
-" set textwidth=80
 set textwidth=72
 
 set formatoptions= " to start with a blank slate.

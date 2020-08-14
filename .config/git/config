@@ -1,16 +1,12 @@
+[alias]
+        log1   = log --oneline
+        log1g  = log --oneline --graph
+        rbi    = rebase --interactive
 [apply]
         whitespace = fix
-[color]
-        branch = false
-        diff = false
-        grep = auto
-        interactive = false
-        log = false
-        status = false
-        ui = false
 [core]
-        editor = $VISUAL
         eol = lf # to always use \n, even on Windows.
+        excludesfile = $XDG_CONFIG_HOME/git/ignore # Global gitignore
         whitespace = space-before-tab,trailing-space
 [gpg]
         program = gpg2 # because not all systems install a "gpg" symlink.

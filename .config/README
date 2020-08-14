@@ -1,17 +1,9 @@
-Dotfiles
+# Dotfiles
 
 This repo does NOT follow strict git discipline.
 Expect ''moar changes'' commits.
 
-
-Management
-
-        cd # Yes, $HOME.
-        git init
-        printf '*\n' >.gitignore
-
-
-Dotfiles vibe check
+## Cool dotfiles
 
 https://git.sr.ht/~sircmpwn/dotfiles
 https://github.com/LukeSmithxyz/voidrice

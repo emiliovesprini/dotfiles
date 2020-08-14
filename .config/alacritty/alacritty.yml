@@ -6,6 +6,7 @@ window:
                 x: 0
                 y: 0
         dynamic_padding: true
+        dynamic_title: false
         # decorations: none
         # decorations: full
         # startup_mode: Fullscreen
@@ -28,10 +29,10 @@ font:
                 # family: Menlo      # MacOS default
                 # family: monospace  # Linux default
                 # family: Courier Prime
-                family: Go Mono
+                # family: Go Mono
                 # family: Liberation Mono
                 # family: Lucida Console
-                # family: Noto Mono
+                family: Noto Mono
                 # family: Roboto Mono
         size: 12
 
@@ -148,10 +149,13 @@ colors: *asciinema
 # colors: *hyper-mod
 # colors: *monokai
 
-visual_bell:
-        animation: Linear
-        duration: 0
-        color: '0xffffff'
+# visual_bell:
+#         animation: Linear
+#         duration: 0
+#         color: '0xffffff'
+# TODO:
+# > Config visual_bell has been deprecated; please use bell instead
+# [ ] check that out
 
 background_opacity: 1.0
 
@@ -169,7 +173,6 @@ selection:
         semantic_escape_chars: ",│`|:\"' ()[]{}<>"
         save_to_clipboard: false
 
-dynamic_title: true
 
 cursor:
         # style: Beam       # |
