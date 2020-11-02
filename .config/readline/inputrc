@@ -8,11 +8,8 @@ set show-all-if-ambiguous         on
 set visible-stats                 on
 
 # vi mode
-#
 set editing-mode         vi
-set show-mode-in-prompt  on
-# set vi-ins-mode-string   ""
-# set vi-cmd-mode-string   "!"
+# set show-mode-in-prompt  on
 
 # Control small L clears the screen
 # \C-l:clear-screen

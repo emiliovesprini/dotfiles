@@ -6,4 +6,4 @@
 # ls -a  # include hidden files
 # lsd    # exclude non hidden files
 
-ls -1a "$@" | grep '^\.'
+ls -1aF "$@" | grep '^\.' | column

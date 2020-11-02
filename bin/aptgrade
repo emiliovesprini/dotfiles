@@ -3,30 +3,19 @@
 # aptgrade is meant to perform all routine package maintenance
 # (in distros that use apt, of course).
 #
-# TODO:
-# the printf to while read to do loop
-# is uber hacky.
-# Figure out something better.
+# TODO the printf to while read to do loop is uber hacky, figure out something better
 
 if ! command -v 'apt' >/dev/null; then
-        printf "Error: command 'apt' is not available.\n" 1>&2
-        exit 1
+	printf "Error: command 'apt' is not available.\n" 1>&2
+	exit 1
 fi
 
 dir="${XDG_DATA_HOME}/aptgrade"
 file="${dir}/last-run.txt"
-if ! test -d "$dir"; then
-        mkdir "$dir"
-fi
-date -u +"# %Y-%m-%dT%H:%M:%SZ" >"$file"
-printf "\n" >>"$file"
+mkdir -p "$dir"
 
-printf 'sudo apt update
-apt list --upgradable
-sudo apt upgrade -y
-sudo apt autoremove -y
-' | while read -r line
-do
-        printf "################################################## %s\n" "$line" | tee -a $file
-        $line | tee -a $file
-done
+cmd='date -Im -u'             ; printf "\$ $cmd\n"; $cmd
+cmd='sudo apt update'         ; printf "\$ $cmd\n"; $cmd
+cmd='apt list --upgradable'   ; printf "\$ $cmd\n"; $cmd
+cmd='sudo apt upgrade -y'     ; printf "\$ $cmd\n"; $cmd
+cmd='sudo apt autoremove -y'  ; printf "\$ $cmd\n"; $cmd

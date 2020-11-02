@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Simple ISO 8601 date without time of day or timezone info
+
+date +'%Y-%m-%d'

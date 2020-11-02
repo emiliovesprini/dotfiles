@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# hw stands for Hard Wrap.
+#
+# It's an ergonomic wrapper around fmt with my preferences built in.
+
+fmt -w72 -g64

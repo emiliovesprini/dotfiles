@@ -1,13 +1,27 @@
+" Custom g
+" TODO
+
+" Poor man's v:
+map v mv
+map V mV:'v,'V
+
+
 set noautoindent
-set noautowrite
-set nobeautify
-set nocomment
-set extended
-set noflash
-" set number
-set ruler
-set searchincr
-" set shiftwidth=8
-set showmode
-set showmatch
-set tabstop=8
+" because it breaks paste when on.
+set extended noiclower ignorecase searchincr wrapscan
+set filec=\
+" Mind you, that's a tab character after the backslash.
+" Editors that trim trailing whitespace on save may sneakily break this.
+set flash
+set leftright
+set nolock
+" because it prevents running a script you're editing,
+" even after backgrounding the editor or writing the file.
+set number ruler showmode
+set recdir=/tmp/vi.recover
+" is simpler than the default of /var/tmp/vi.recover
+set report=1
+" No arbitrary cutoff.
+set showmatch matchtime=1
+set verbose
+" Maybe I'll learn something.

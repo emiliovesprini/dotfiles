@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# es stands for Elastic Spaces
+#
+# It tries to emulate Elastic Tabstops style alignment,
+# with spaces instead of tabs. 
+# For this it uses a simple convention:
+# single spaces separate words, whereas
+# multiple spaces separate cells.
+#
+# Elastic Tabstops http://nickgravgaard.com/elastic-tabstops/
+#
+# Note:
+#
+# this implementation is lazy.
+# It relies on the fact that column -t separates cells 2 spaces by default.
+# TODO: is this POSIX behaviour?
+#
+# It's also broken when input contains $char.
+# $char is currently a very long character,
+# very long meaning not monospace. 
+# Given that alignment with spaces only makes sense in a monospace context,
+# it's ''fine'' for now,
+# for some value of fine.
+
+char='𒐫'
+
+sed -E "s/([^[:blank:]]+)[[:space:]]{2,}/\1${char}/g" |
+column -s"${char}" -t

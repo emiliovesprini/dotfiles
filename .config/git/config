@@ -1,22 +1,25 @@
 [alias]
-        log1   = log --oneline
-        log1g  = log --oneline --graph
-        rbi    = rebase --interactive
+	com    = commit
+	lf     = ls-files
+	log1g  = log --oneline --graph
+	log1   = log --oneline
+	mail   = send-email
+	rbi    = rebase --interactive
 [apply]
-        whitespace = fix
+	whitespace = fix
 [core]
-        eol = lf # to always use \n, even on Windows.
-        excludesfile = $XDG_CONFIG_HOME/git/ignore # Global gitignore
-        whitespace = space-before-tab,trailing-space
+	eol = lf # to always use \n, even on Windows.
+	excludesfile = $XDG_CONFIG_HOME/git/ignore # Global gitignore
+	whitespace = space-before-tab,trailing-space
 [gpg]
-        program = gpg2 # because not all systems install a "gpg" symlink.
+	program = gpg2 # because not all systems install a "gpg" symlink.
 [sendemail]
-        smtpencryption = tls
-        smtpserver = mail.cock.li
-        smtpserverport = 587
-        smtpuser = naveguese@cock.li
+	smtpencryption  = tls
+	smtpserver      = mail.cock.li
+	smtpserverport  = 587
+	smtpuser        = naveguese@cock.li
 [status]
-        branch = true
+	branch = true
 [user]
-        email = naveguese@cock.li
-        name = Emilio Vesprini
+	email = pajaro@cock.email
+	name = Emilio Vesprini

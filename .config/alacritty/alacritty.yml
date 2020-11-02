@@ -1,3 +1,5 @@
+# vim: expandtab shiftwidth=8 softtabstop=8 :
+
 window:
         dimensions:
                 columns: 80
@@ -11,35 +13,32 @@ window:
         # decorations: full
         # startup_mode: Fullscreen
         startup_mode: Maximized
-        startup_mode: Windowed
-        gtk_theme_variant: dark
-        # gtk_theme_variant: light
+        # startup_mode: Windowed
+        # gtk_theme_variant: dark
+        gtk_theme_variant: light
 
 scrolling:
         history: 10000
         multiplier: 3
 
 font:
-        # normal:
-        #   family: Iosevka Term
-        # size: 13
-
         normal:
                 # family: Consolas   # Windows default
                 # family: Menlo      # MacOS default
                 # family: monospace  # Linux default
-                # family: Courier Prime
+                # family: Courier 10 Pitch
                 # family: Go Mono
-                # family: Liberation Mono
                 # family: Lucida Console
-                family: Noto Mono
-                # family: Roboto Mono
+                # family: Luxi Mono
+                # family: Noto Mono
+                # family: Noto Sans Mono
+                family: Roboto Mono
         size: 12
 
         # normal:
-        #   # family: Inconsolata
-        #   family: Ubuntu Mono
-        # size: 16
+        #         # family: Inconsolata
+        #         family: Ubuntu Mono
+        # size: 15
 
         offset:
                 x: 0  # Letter spacing
@@ -58,15 +57,18 @@ schemes:
                 primary:
                         background:  '0x000000'
                         foreground:  '0xffffff'
+                cursor:
+                        background:  '0xffffff'
+                        foreground:  '0x000000'
                 normal:
                         black:       '0x000000'
-                        red:         '0xdd3c69'
-                        green:       '0x4ebf22'
-                        yellow:      '0xddaf3c'
                         blue:        '0x26b0d7'
-                        magenta:     '0xb954e1'
                         cyan:        '0x54e1b9'
+                        green:       '0x4ebf22'
+                        magenta:     '0xb954e1'
+                        red:         '0xdd3c69'
                         white:       '0xd9d9d9'
+                        yellow:      '0xddaf3c'
                 bright:
                         black:       '0x4d4d4d'
                         red:         '0xdd3c69'
@@ -75,31 +77,79 @@ schemes:
                         blue:        '0x26b0d7'
                         magenta:     '0xb954e1'
                         cyan:        '0x54e1b9'
-                        white:       '0xffffff'
-        css1colors: &css1-light
-                # color        # hex      # css color name
+        css1: &css1
                 primary:
                         background:  '0xffffff'
                         foreground:  '0x000000'
+                cursor:
+                        background:  '0xffa500'
+                        foreground:  '0x000000'
                 normal:
                         black:       '0x000000'
-                        red:         '0x800000' # maroon
+                        red:         '0x800000'
                         green:       '0x008000'
-                        yellow:      '0x808000' # olive
-                        blue:        '0x000080' # navy
-                        magenta:     '0x800080' # purple
-                        cyan:        '0x008080' # teal
-                        white:       '0xc0c0c0' # silver
+                        yellow:      '0x808000'
+                        blue:        '0x000080'
+                        magenta:     '0x800080'
+                        cyan:        '0x008080'
+                        white:       '0xc0c0c0'
                 bright:
-                        black:       '0x808080' # gray
+                        black:       '0x808080'
                         red:         '0xff0000'
-                        green:       '0x00ff00' # lime
+                        green:       '0x00ff00'
                         yellow:      '0xffff00'
                         blue:        '0x0000ff'
-                        magenta:     '0xff00ff' # fuchsia
+                        magenta:     '0xff00ff'
                         cyan:        '0x00ffff'
                         white:       '0xffffff'
-        css1colors: &hyper-mod
+        css1light: &css1silver
+                primary:
+                        background:  '0xc0c0c0'
+                        foreground:  '0x000000'
+                cursor:
+                        background:  '0xffa500'
+                        foreground:  '0x000000'
+                normal:
+                        black:       '0x000000'
+                        red:         '0x800000'
+                        green:       '0x008000'
+                        yellow:      '0x808000'
+                        blue:        '0x000080'
+                        magenta:     '0x800080'
+                        cyan:        '0x008080'
+                        white:       '0x808080'
+                bright:
+                        black:       '0x808080'
+                        red:         '0xff0000'
+                        green:       '0x00ff00'
+                        yellow:      '0xffff00'
+                        blue:        '0x0000ff'
+                        magenta:     '0xff00ff'
+                        cyan:        '0x00ffff'
+                        white:       '0xc0c0c0'
+        css1light: &css1reversed
+                primary:
+                        background:  '0x000000'
+                        foreground:  '0xffffff'
+                normal:
+                        black:       '0x000000'
+                        red:         '0xff7f7f'
+                        green:       '0x7fff7f'
+                        yellow:      '0xffff7f'
+                        blue:        '0x7f7fff'
+                        magenta:     '0xff7fff'
+                        cyan:        '0x7fffff'
+                        white:       '0xc0c0c0'
+                bright:
+                        black:       '0x808080'
+                        red:         '0xff7f7f'
+                        green:       '0x7fff7f'
+                        yellow:      '0xffff7f'
+                        blue:        '0x7f7fff'
+                        magenta:     '0xff7fff'
+                        cyan:        '0x7fffff'
+                        white:       '0xffffff'
+        hypermod: &hypermod
                 primary:
                         background:  '0x000000'
                         foreground:  '0xffffff'
@@ -121,32 +171,33 @@ schemes:
                         magenta:     '0xcc00ff'
                         cyan:        '0x00ffff'
                         white:       '0xffffff'
-        monokai: &monokai # another light-on-dark theme in case i need one
+        monokai: &monokai
                 primary:
                         background:  '0x272822'
-                        foreground:  '0xF8F8F2'
+                        foreground:  '0xf8f8f2'
                 normal:
                         black:       '0x272822'
-                        red:         '0xF92672'
-                        green:       '0xA6E22E'
-                        yellow:      '0xF4BF75'
-                        blue:        '0x66D9EF'
-                        magenta:     '0xAE81FF'
-                        cyan:        '0xA1EFE4'
-                        white:       '0xF8F8F2'
+                        red:         '0xf92672'
+                        green:       '0xa6e22e'
+                        yellow:      '0xf4bf75'
+                        blue:        '0x66d9ef'
+                        magenta:     '0xae81ff'
+                        cyan:        '0xa1efe4'
+                        white:       '0xf8f8f2'
                 bright:
-                        black:       '0x75715E'
-                        red:         '0xF92672'
-                        green:       '0xA6E22E'
-                        yellow:      '0xF4BF75'
-                        blue:        '0x66D9EF'
-                        magenta:     '0xAE81FF'
-                        cyan:        '0xA1EFE4'
-                        white:       '0xF9F8F5'
-
-colors: *asciinema
-# colors: *css1-light
-# colors: *hyper-mod
+                        black:       '0x75715e'
+                        red:         '0xf92672'
+                        green:       '0xa6e22e'
+                        yellow:      '0xf4bf75'
+                        blue:        '0x66d9ef'
+                        magenta:     '0xae81ff'
+                        cyan:        '0xa1efe4'
+                        white:       '0xf9f8f5'
+# colors: *asciinema
+# colors: *css1
+colors: *css1silver
+# colors: *css1reversed
+# colors: *hypermod
 # colors: *monokai
 
 # visual_bell:
@@ -186,6 +237,10 @@ live_config_reload: false
 working_directory: None
 enable_experimental_conpty_backend: false
 alt_send_esc: true
+
+###############
+
+# Unmodified defaults from now on.
 
 debug:
         render_timer: false
